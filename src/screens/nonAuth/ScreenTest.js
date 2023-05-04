@@ -6,7 +6,6 @@ import ViewShot from "react-native-view-shot";
 import CustomBtn from "../components/CustomBtn";
 import RNFetchBlob from "rn-fetch-blob";
 import FileViewer from 'react-native-file-viewer';
-import PdfLib, { PDFPage, PDFDocument } from "react-native-pdf-lib-plugin";
 
 const ScreenTest = () => {
     const { colors } = useTheme();
@@ -65,34 +64,6 @@ const ScreenTest = () => {
         }
     }
 
-    const createPdf = async () => {
-        const page1 = PDFPage
-            .create()
-            .setMediaBox(200, 200)
-            .drawText('You can add text and rectangles to the PDF!', {
-                x: 5,
-                y: 235,
-                color: '#007386',
-            })
-        const docsDir = await PdfLib.getDocumentsDirectory();
-        const pdfPath = `${docsDir}/sample.pdf`;
-        console.log(pdfPath);
-        // FileViewer.open(pdfPath, {
-        //     showOpenWithDialog: true,
-        // });
-        // PDFDocument
-        //     .create(pdfPath)
-        //     .addPages(page1)
-        //     .write() // Returns a promise that resolves with the PDF's path
-        //     .then(path => {
-        //         console.log('PDF created at: ' + path);
-        //         // Do stuff with your shiny new PDF!
-        //     });
-        try {
-        } catch (e) {
-            console.log(e);
-        }
-    }
 
 
     return (
@@ -125,7 +96,6 @@ const ScreenTest = () => {
                 <CustomBtn
                     titleTxt={"Pdf"}
                     onPress={() => {
-                        createPdf()
                     }}
                 />
                 {/* <KeyboardAvoidingView behavior={Platform?.OS == "ios" ? "padding" : null} keyboardVerticalOffset={40}> */}
